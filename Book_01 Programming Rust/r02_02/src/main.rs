@@ -27,4 +27,6 @@ fn get_form(_request: &mut Request) -> IronResult<Response> {
         <button type="submit">Calculate GDC</button>
     </form>
     "#);
+
+    Ok(response)
 }
