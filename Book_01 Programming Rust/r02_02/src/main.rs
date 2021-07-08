@@ -14,6 +14,11 @@ fn main() {
     Iron::new(get_form).http("localhost:3000").unwrap();
 }
 
+
+// &mut is a mutable but referenced from other variable
+// _ in _request says to the rustc "I know it's not used, don't panic!"
+// Result has to point at same type as function's return data
+// Result points at Ok or Err, accordingto the return that is given from function
 fn get_form(_request: &mut Request) -> IronResult<Response> {
     let mut response = Response::new();
 
