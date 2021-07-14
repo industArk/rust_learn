@@ -22,8 +22,13 @@ fn main() {
 fn get_form(_request: &mut Request) -> IronResult<Response> {
     let mut response = Response::new();
 
+    // sets HTTP response status to 200 OK
     response.set_mut(status::Ok);
+    // sets response type - here to HTML document
     response.set_mut(mime!(Text/Html; Charset=Utf8));
+    // this way is possible to just write HTML code
+    // r#"something"# allows having raw string - # can be multiple, always one more that possible to find inside the string
+    // such raw string may have all possible signs inside without escaping them
     response.set_mut(r#"
     <title>GDC Calc</title>
     <form action="/gcd" method="post">
@@ -34,4 +39,4 @@ fn get_form(_request: &mut Request) -> IronResult<Response> {
     "#);
 
     Ok(response)
-}
+} 
